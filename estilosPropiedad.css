@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fffdd0;
+    padding-bottom: 80px;
+}
+.logo {
+  float: left; /* Alineo el logo a la izquierda */
+}
+
+.logo img {
+  height: 100px; /* Manejo el logo donde quiero*/
+
+}
+
+header {
+    background-color: #78451a; 
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    color: #ffffff; /* Color del texto del encabezado */
+    
+}
+nav {
+    text-align: center; /* Centro los elementos de la barra de navegacion */
+    font-size: 19px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 5px;
+}
+
+nav ul li a {
+    color: #ffffff; /* Color de los enlaces del encabezado */
+    text-decoration: none;
+    
+}
+
+.propiedad {
+    display: flex;
+    margin-bottom: 20px; /* Espacio entre cada propiedad */
+  }
+  
+  .imagen {
+    flex: 1;
+  }
+  
+  .imagen img {
+    width: 100%; /* Para que la imagen ocupe todo el ancho */
+    height: auto; /* Para mantener la proporción */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+  }
+  
+  .descripcion {
+    flex: 3; /* Cambio el tamaño relativo de la imagen y la descripción */
+    padding: 0 20px; /* Espacio alrededor del texto */
+    background-color: rgba(255, 255, 255, 0.4); 
+    border-radius: 10px; 
+    color: #000; 
+    font-size: 18px;
+  }
+  
+  .descripcion h2 {
+    margin-top: 0; /* Elimina el margen superior del título */
+  }
+  
+  .descripcion p {
+    margin: 5px 0; /* Espacio entre los párrafos */
+  }
+  footer {
+    background-color: #78451a; 
+    color: #ffffff; 
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Pongo el contenido a los extremos */
+    align-items: center; /* Centra verticalmente el contenido */
+}
+
+.footer-left {
+    margin-left: 20px; /* Espacio a la izquierda */
+}
+
+.footer-right {
+    margin-right: 20px; /* Espacio a la derecha */
+}

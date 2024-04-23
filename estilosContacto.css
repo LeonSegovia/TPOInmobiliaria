@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fffdd0;
+}
+.logo {
+    float: left; /* Alineo el logo a la izquierda */
+}
+
+.logo img {
+    height: 100px; /* Manejo el logo donde quiero*/
+    
+}
+
+header {
+    background-color: #78451a; 
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    color: #ffffff; /* Color del texto del encabezado */
+    
+}
+nav {
+    text-align: center; /* Centro los elementos de la barra de navegacion */
+    font-size: 19px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 5px;
+}
+
+nav ul li a {
+    color: #ffffff; /* Color de los enlaces del encabezado */
+    text-decoration: none;
+    
+}
+.contacto-texto {
+    padding: 20px; /* Espacio alrededor del texto */
+    width: 55%; /* Ancho de la caja */
+    text-align: center; /* Centrar el texto */
+    margin: 0 auto;
+    font-size: 19px;
+}
+footer {
+    background-color: #78451a;
+    color: #ffffff; 
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Pongo el contenido a los extremos */
+    align-items: center; /* Centra verticalmente el contenido */
+}
+
+.footer-left {
+    margin-left: 20px; /* Espacio a la izquierda */
+}
+
+.footer-right {
+    margin-right: 20px; /* Espacio a la derecha */
+}

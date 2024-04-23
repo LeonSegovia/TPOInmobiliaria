@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fffdd0;
+    padding-bottom: 60px;
+}
+
+.logo {
+    float: left; /* Alineo el logo a la izquierda */
+}
+
+.logo img {
+    height: 100px; /* Tamaño del logo */
+}
+
+header {
+    background-color: #78451a; 
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    color: #ffffff; /* Color del texto del encabezado */
+}
+
+nav {
+    text-align: center; /* Centro los elementos de la barra de navegacion */
+    font-size: 19px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 5px;
+}
+
+nav ul li a {
+    color: #ffffff; /* Color de los enlaces del encabezado */
+    text-decoration: none;
+}
+
+#contenido {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.contenido-texto {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.caja {
+    width: calc(50% - 20px);
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.caja img {
+    width: 100%;
+    height: auto;
+}
+
+.caja h1,
+.caja p {
+    padding: 20px;
+}
+
+footer {
+    background-color: #78451a; 
+    color: #ffffff; 
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Pongo el contenido a los extremos */
+    align-items: center; /* Centra verticalmente el contenido */
+}
+
+.footer-left {
+    margin-left: 20px; /* Espacio a la izquierda */
+}
+
+.footer-right {
+    margin-right: 20px; /* Espacio a la derecha */
+}
+
+@media screen and (max-width: 768px) {
+    .contenido-texto {
+        flex-direction: column;
+    }
+
+    .caja {
+        width: calc(100% - 40px);
+    }
+}
