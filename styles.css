@@ -95,12 +95,48 @@ footer {
     margin-right: 20px; /* Espacio a la derecha */
 }
 
-@media screen and (max-width: 768px) {
-    .contenido-texto {
-        flex-direction: column;
+/* Tablets y móviles grandes (600px a 768px) */
+@media screen and (min-width: 600px) {
+    body {
+        font-size: 17px;
     }
-
+    nav {
+        font-size: 18px;
+    }
     .caja {
-        width: calc(100% - 40px);
+        width: calc(50% - 20px);
+    }
+}
+
+/* Laptops pequeñas y tablets grandes (768px a 1024px) */
+@media screen and (min-width: 768px) {
+    body {
+        font-size: 18px;
+    }
+    #contenido {
+        max-width: 80%;
+    }
+    .caja {
+        width: calc(50% - 20px);
+    }
+}
+
+/* Computadoras de escritorio y laptops grandes (1024px a 1200px) */
+@media screen and (min-width: 1024px) {
+    body {
+        font-size: 19px;
+    }
+    #contenido {
+        max-width: 70%;
+    }
+}
+
+/* Pantallas muy grandes y proyectores (1200px en adelante) */
+@media screen and (min-width: 1200px) {
+    body {
+        font-size: 20px;
+    }
+    #contenido {
+        max-width: 60%;
     }
 }

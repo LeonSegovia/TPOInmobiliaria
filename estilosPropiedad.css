@@ -96,3 +96,26 @@ nav ul li a {
 .footer-right {
     margin-right: 20px; /* Espacio a la derecha */
 }
+
+
+form {
+  margin-bottom: 20px;
+}
+
+label {
+  margin-right: 10px;
+}
+
+input, select {
+  margin-right: 10px;
+}
+
+.propiedad {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.price {
+  font-weight: bold;
+}

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="estilosPropiedad.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
     <header>
@@ -21,13 +22,26 @@
         </nav>
     </header>
 
-    <div class="propiedad">
+    <form id="filter-form">
+      <label for="currency">Moneda: </label>
+      <select id="currency">
+        <option value="USD">USD</option>
+        <option value="ARS">ARS</option>
+      </select>
+      <label for="min-price">Precio Minimo: </label>
+      <input type="text" id="min-price" placeholder="Precio Minimo">
+      <label for="max-price">Precio Maximo</label>
+      <input type="text" id="max-price" placeholder="Precio Maximo">
+      <button type="submit">Filtrar</button>
+    </form>
+
+    <div class="propiedad" data-price-USD="225000" data-price-ARS="202500000">
         <div class="imagen">
           <img src="img/casa 1.jpg" alt="Nombre de la propiedad 1">
         </div>
         <div class="descripcion">
           <h2>CASA EN VENTA 5 AMBIENTES - MERLO ZONA OESTE</h2>
-          <h2>225.000 USD</h2>
+          <h2 class="price">225.000 USD</h2>
           <ul>
             <li>Superficie Terreno: 250m²</li>
             <li>Superficie Cubierta: 180m²</li>
@@ -40,13 +54,13 @@
         </div>
       </div>
       
-      <div class="propiedad">
+      <div class="propiedad" data-price-USD="160000" data-price-ARS="144000000">
         <div class="imagen">
           <img src="img/casa 2.jpg" alt="Nombre de la propiedad 2">
         </div>
         <div class="descripcion">
           <h2>CASA EN VENTA 3 AMBIENTES - SAN FERNANDO - ZONA NORTE</h2>
-          <h2>160.000 USD</h2>
+          <h2 class="price">160.000 USD</h2>
           <ul>
             <li>Superficie Terreno: 200m²</li>
             <li>Superficie Cubierta: 130m²</li>
@@ -59,13 +73,13 @@
         </div>
       </div>
       
-      <div class="propiedad">
+      <div class="propiedad"data-price-USD="280000" data-price-ARS="252000000">
         <div class="imagen">
           <img src="img/casa 4.jpg" alt="Nombre de la propiedad 2">
         </div>
         <div class="descripcion">
           <h2>CASA EN VENTA 5 AMBIENTES CON PILETA - RAMOS MEJÍA - ZONA OESTE </h2>
-          <h2>280.000 USD</h2>
+          <h2 class="price">280.000 USD</h2>
           <ul>
             <li>Superficie Terreno: 290m²</li>
             <li>Superficie Cubierta: 2400m²</li>
@@ -78,13 +92,13 @@
 
         </div>
       </div>
-      <div class="propiedad">
+      <div class="propiedad" data-price-USD="300" data-price-ARS="270000">
         <div class="imagen">
           <img src="img/depto 3.jpg" alt="Nombre de la propiedad 2">
         </div>
         <div class="descripcion">
           <h2>ALQUILER MONOAMBIENTE A ESTRENAR - PALERMO - CABA</h2>
-          <h2>360.000 ARS</h2>
+          <h2 class="price">300 USD</h2>
           <ul>
             <li>Superficie Total: 45m²</li>
             <li>Superficie Cubierta: 45m²</li>
@@ -97,13 +111,13 @@
         </div>
       </div>
 
-      <div class="propiedad">
+      <div class="propiedad" data-price-USD="450" data-price-ARS="405000">
         <div class="imagen">
           <img src="img/depto 1.jpg" alt="Nombre de la propiedad 2">
         </div>
         <div class="descripcion">
           <h2>ALQUILER DEPARTAMENTO DOS AMBIENTES - MORÓN - ZONA OESTE</h2>
-          <h2>450.000 ARS</h2>
+          <h2 class="price">450 USD</h2>
           <ul>
             <li>Superficie Total: 60m²</li>
             <li>Superficie Cubierta: 55m²</li>
@@ -117,13 +131,13 @@
 
         </div>
       </div>
-      <div class="propiedad">
+      <div class="propiedad" data-price-USD="350" data-price-ARS="315000">
         <div class="imagen">
           <img src="img/depto 2.jpg" alt="Nombre de la propiedad 2">
         </div>
         <div class="descripcion">
           <h2>ALQUILER DEPARTAMENTO DOS AMBIENTES - CASTELAR - ZONA OESTE</h2>
-          <h2>410.000 ARS</h2>
+          <h2 class="price">350 USD</h2>
           <ul>
             <li>Superficie Total: 55m²</li>
             <li>Superficie Cubierta: 55m²</li>
@@ -136,13 +150,13 @@
 
         </div>
       </div>
-      <div class="propiedad">
+      <div class="propiedad" data-price-USD="50" data-price-ARS="45000">
         <div class="imagen">
           <img src="img/cochera.jpg" alt="Nombre de la propiedad 2">
         </div>
         <div class="descripcion">
           <h2>ALQUILER COCHERA - PADUA - ZONA OESTE</h2>
-          <h2>30.000 ARS</h2>
+          <h2 class="price">50 USD</h2>
           <ul>
             <li>Superficie Total: 15m²</li>
             <li>Superficie Cubierta: 15m²</li>
@@ -159,5 +173,57 @@
             <p>Correo electrónico: info@inmobiliariraices.com</p>
         </div>
     </footer>
+    <script>
+     $(document).ready(function() {
+   // Función para formatear números con separadores de miles
+function formatNumber(n) {
+    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
+// Aplicar formateo de números en los campos de precio mientras se escriben
+$("#min-price, #max-price").on("input", function() {
+    var formattedValue = formatNumber($(this).val().replace(/\./g, ""));
+    $(this).val(formattedValue);
+});
+
+
+
+
+    // Función para actualizar los precios mostrados según la moneda seleccionada
+    function updatePrices(currency) {
+        $(".propiedad").each(function() {
+            var price = $(this).data("price-" + currency.toLowerCase()); 
+            var formattedPrice = formatNumber(price); // Formatear el precio con separadores de miles
+            $(this).find(".price").text("$" + formattedPrice + " " + currency.toUpperCase()); // Actualizar el texto del precio
+        });
+    }
+
+    // Actualizar los precios cuando se cambia la moneda
+    $("#currency").change(function() {
+        var selectedCurrency = $(this).val();
+        updatePrices(selectedCurrency);
+    });
+
+    // Filtrado de propiedades
+    $("#filter-form").submit(function(event) {
+        event.preventDefault();
+        
+        var currency = $("#currency").val();
+        var minPrice = parseFloat($("#min-price").val().replace(/\./g, "")) || 0;
+        var maxPrice = parseFloat($("#max-price").val().replace(/\./g, "")) || Number.MAX_SAFE_INTEGER;
+
+        $(".propiedad").show().filter(function() {
+            var price = parseFloat($(this).data("price-" + currency.toLowerCase())); // Obtener el precio correspondiente a la moneda seleccionada
+
+            return (price < minPrice || price > maxPrice);
+        }).hide();
+    });
+
+    // Establecer la moneda por defecto y actualizar los precios
+    updatePrices("usd");
+});
+
+      </script>
+    
 </body>
 </html>
